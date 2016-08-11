@@ -14,9 +14,13 @@ class TodosController < ApplicationController
     redirect_to todos_path
   end
 
+  def complete
+    
+  end
   private 
 
   def todo_params
       params.require(:todo).permit(:title)
   end
+
 end
