@@ -5,13 +5,13 @@ feature "User sees own todos" do
     Todo.create!(title: "Buy milk", email: "some@example.com")
     sign_in_as "someone@example.com"
 
-    expect(page).not_to have_css ".todos li", text: "Buy milk"
+    expect(page).not_to display_todo text: "Buy milk"
   end
 
   scenario "does see own todos" do
     Todo.create!(title: "Walk dog", email: "real@person.com")
     sign_in_as "real@person.com"
 
-    expect(page).to have_css ".todos li", text: "Walk dog"
+    expect(page).to display_todo "Walk dog"
   end
 end
